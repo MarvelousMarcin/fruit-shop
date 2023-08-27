@@ -18,6 +18,12 @@ const config: Config = {
         "orange-main": "#F4A261",
         "gray-light": "#F3F1F1",
         "gray-dark": "#C2BDBD",
+        yellow: "#FFF1DD",
+        red: "#FFE8E8",
+        green: "#BFFFE1",
+      },
+      boxShadow: {
+        special: "0px 30px 60px 0px rgba(32, 32, 32, 0.06);",
       },
     },
   },
