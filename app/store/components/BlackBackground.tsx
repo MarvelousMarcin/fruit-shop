@@ -6,12 +6,15 @@ import { FC } from "react";
 interface BlackBackgroundProps {}
 
 const BlackBackground: FC<BlackBackgroundProps> = ({}) => {
-  const { isMenuOpen } = useStore();
+  const { isMenuOpen, switchMenu } = useStore();
 
   return (
     <>
       {isMenuOpen && (
-        <div className="fixed w-screen bg-black opacity-60 h-screen top-0 left-0 z-40"></div>
+        <div
+          onClick={() => switchMenu()}
+          className="fixed w-screen bg-black opacity-60 h-screen top-0 left-0 z-40"
+        ></div>
       )}
     </>
   );

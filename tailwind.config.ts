@@ -26,7 +26,7 @@ const config: Config = {
         green: "#BFFFE1",
       },
       boxShadow: {
-        special: "0px 30px 60px 0px rgba(32, 32, 32, 0.06);",
+        special: "0px 0px 20px 0px rgba(32, 32, 32, 0.06);",
       },
     },
   },
