@@ -1,12 +1,16 @@
-import { hottestProducts, recommendedProducts } from "../data/products";
+import { hottestProducts, onSale, recommendedProducts } from "../data/products";
 import Header from "./components/Header";
 import SearchBox from "./components/SearchBox";
 import ProductSection from "./components/products/ProductSection";
+import LeftMenu from "./components/LeftMenu";
+import BlackBackground from "./components/BlackBackground";
 export default async function Store() {
   return (
-    <main className="w-screen grid grid-cols-8 px-10 md:px-20">
+    <main className="w-screen grid grid-cols-8  md:px-20 2xl:px-96 pb-14">
+      <LeftMenu />
+      <BlackBackground />
       <Header />
-      <div className="row-start-2 row-end-2 col-span-8 h-fit tracking-wide">
+      <div className="row-start-2 px-6 row-end-2 col-span-8 h-fit tracking-wide">
         <h1 className="text-gray-main">
           Hello Marcin,
           <span className="font-bold">
@@ -24,7 +28,13 @@ export default async function Store() {
       <ProductSection
         className="col-span-8 mt-11"
         title="Hottest"
+        additionalHeaders={true}
         products={hottestProducts}
+      />
+      <ProductSection
+        className="col-span-8 mt-11"
+        title="On Sale"
+        products={onSale}
       />
     </main>
   );

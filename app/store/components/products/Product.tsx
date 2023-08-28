@@ -21,7 +21,8 @@ const Product: FC<ProductProps> = ({
   lastElemRef,
 }) => {
   return (
-    <div
+    <motion.div
+      whileHover={{ scale: 1.1 }}
       ref={lastElemRef}
       className={clsx(
         "w-48 h-48 rounded-lg shadow-special font-bold py-2 px-4 flex flex-col justify-end items-center relative shrink-0",
@@ -41,7 +42,7 @@ const Product: FC<ProductProps> = ({
         <h2 className="text-orange-main">$ {price}</h2>
         <PlusCircle className="text-orange-main cursor-pointer" />
       </section>
-    </div>
+    </motion.div>
   );
 };
 
