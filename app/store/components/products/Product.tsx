@@ -22,7 +22,6 @@ const Product: FC<ProductProps> = ({
 }) => {
   return (
     <motion.div
-      whileHover={{ scale: 1.1 }}
       ref={lastElemRef}
       className={clsx(
         "w-48 h-48 rounded-lg shadow-special font-bold py-2 px-4 flex flex-col justify-end items-center relative shrink-0",
