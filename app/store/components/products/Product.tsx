@@ -2,7 +2,7 @@
 import clsx from "clsx";
 import { Heart, PlusCircle } from "lucide-react";
 import Image from "next/image";
-import { FC } from "react";
+import { FC, useState } from "react";
 import { motion } from "framer-motion";
 
 interface ProductProps {
@@ -20,6 +20,8 @@ const Product: FC<ProductProps> = ({
   bgColor = "bg-white",
   lastElemRef,
 }) => {
+  const [isLiked, setIsLiked] = useState(false);
+
   return (
     <motion.div
       ref={lastElemRef}
@@ -28,7 +30,15 @@ const Product: FC<ProductProps> = ({
         bgColor
       )}
     >
-      <Heart className="absolute top-2 right-2 text-orange-main" />
+      <motion.div
+        className="absolute top-2 right-2 text-orange-main cursor-pointer"
+        whileTap={{ scale: 1.4 }}
+      >
+        <Heart
+          onClick={() => setIsLiked((prevLiked) => !prevLiked)}
+          className={clsx(isLiked && "fill-orange-main")}
+        />
+      </motion.div>
       <Image
         className="select-none"
         alt="item"
