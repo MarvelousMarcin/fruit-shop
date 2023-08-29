@@ -2,6 +2,7 @@
 import { useStore } from "@/app/store-global/store";
 import { Dispatch, FC, SetStateAction } from "react";
 import BasketProduct from "./BasketProduct";
+import { useRouter } from "next/navigation";
 
 interface BasketContentProps {
   setIsCheckout: Dispatch<SetStateAction<boolean>>;
@@ -23,7 +24,7 @@ const BasketContent: FC<BasketContentProps> = ({ setIsCheckout }) => {
           </>
         ))}
       </div>
-      <section className="h-36 w-screen bg-white  fixed bottom-0 left-0 px-20 flex justify-between items-center">
+      <section className="h-36 w-screen bg-white  fixed bottom-0 left-0 px-5 md:px-20 flex justify-between items-center">
         <section>
           <h1 className="text-2xl text-orange-main font-bold">Total: </h1>
           <p className="text-xl fonrtt-bold">$ {price}</p>

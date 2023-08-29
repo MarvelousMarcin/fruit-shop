@@ -45,7 +45,10 @@ export default function Basket() {
             <h1 className="font-bold text-md">What’s your phone number?</h1>
             <Input placeholder="" className="w-full mt-2 text-gray-special" />
           </div>
-          <button className="bg-orange-main p-2 text-white rounded-md py-4 font-bold">
+          <button
+            onClick={() => router.push("/order-success")}
+            className="bg-orange-main p-2 text-white rounded-md py-4 font-bold"
+          >
             Order
           </button>
         </div>
@@ -53,7 +56,7 @@ export default function Basket() {
       <div className="w-full h-28 flex justify-center items-center relative ">
         <button
           onClick={() => router.push("/store")}
-          className="bg-white text-gray-main rounded-xl font-bold px-2 py-1 absolute left-10 flex gap-1 items-center justify-center"
+          className="bg-white text-gray-main rounded-xl font-bold px-2 py-1 absolute left-3 md:left-10 flex gap-1 items-center justify-center"
         >
           <ArrowBigLeft />
           Go Back

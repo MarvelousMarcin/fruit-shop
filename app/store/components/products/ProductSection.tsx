@@ -23,8 +23,6 @@ const ProductSection: FC<ProductSectionProps> = ({
   products,
   additionalHeaders = false,
 }) => {
-  const ref = useRef(null);
-
   return (
     <div className={clsx("", className)}>
       <div className="text-xl font-bold relative tracking-wider  flex items-center gap-9 px-6">
@@ -40,10 +38,7 @@ const ProductSection: FC<ProductSectionProps> = ({
         <div className="absolute w-20 h-[5px] bg-orange-main -bottom-[2px]"></div>
       </div>
       <section className="mt-5 w-full flex justify-start relative pl-6 h-full">
-        <div
-          className="flex gap-8 w-full overflow-y-visible overflow-x-hidden items-center"
-          ref={ref}
-        >
+        <div className="flex gap-8 w-full overflow-y-visible overflow-x-hidden items-center">
           <motion.div
             drag="x"
             dragConstraints={{ left: -400, right: 0 }}
