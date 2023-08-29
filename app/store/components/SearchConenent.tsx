@@ -23,7 +23,7 @@ const SearchConenent: FC<SearchConenentProps> = ({ className }) => {
         What we found:
         <div className="absolute w-20 h-[5px] bg-orange-main -bottom-[2px]"></div>
       </div>
-      <section className="mt-5 justify-center grid  grid-cols-1 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 px-6 gap-4">
+      <section className="mt-5 justify-center grid grid-cols-1 sm:grid-cols-3  xl:grid-cols-5 px-6 gap-4">
         {allProducts
           .filter((product) => product.name.toLowerCase().includes(searchQuery))
           .map((prod) => (
