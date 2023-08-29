@@ -24,9 +24,11 @@ const Product: FC<ProductProps> = ({
 
   return (
     <motion.div
+      animate={{ size: [0.94, 1] }}
+      key={Math.random()}
       ref={lastElemRef}
       className={clsx(
-        "w-48 h-48 rounded-lg shadow-special font-bold py-2 px-4 flex flex-col justify-end items-center relative shrink-0",
+        "justify-self-center	 w-48 h-48 rounded-lg shadow-special font-bold py-2 px-4 flex flex-col justify-end items-center relative shrink-0",
         bgColor
       )}
     >

@@ -18,17 +18,17 @@ const SearchConenent: FC<SearchConenentProps> = ({ className }) => {
   const { searchQuery } = useStore();
 
   return (
-    <div className={clsx("", className)}>
+    <div className={clsx("mt-7", className)}>
       <div className="text-xl font-bold relative tracking-wider  flex items-center gap-9 px-6">
         What we found:
         <div className="absolute w-20 h-[5px] bg-orange-main -bottom-[2px]"></div>
       </div>
-      <section className="mt-5 justify-self-center grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 px-6 gap-4">
+      <section className="mt-5 justify-center grid  grid-cols-1 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 px-6 gap-4">
         {allProducts
           .filter((product) => product.name.toLowerCase().includes(searchQuery))
           .map((prod) => (
             <Product
-              key={Math.random()}
+              key={prod.id}
               name={prod.name}
               photo={prod.photo}
               price={prod.price}

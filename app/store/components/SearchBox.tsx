@@ -7,11 +7,10 @@ import { motion } from "framer-motion";
 interface SearchBoxProps extends React.HTMLAttributes<HTMLInputElement> {}
 
 const SearchBox: FC<SearchBoxProps> = ({ className }) => {
-  const { setIsSearching, isSearching, setSearchQuery } = useStore();
+  const { setIsSearching, setSearchQuery } = useStore();
 
   return (
     <motion.section
-      animate={{ y: isSearching ? -80 : 0 }}
       className={clsx(className, "flex w-full items-center px-6")}
     >
       <div
@@ -19,7 +18,7 @@ const SearchBox: FC<SearchBoxProps> = ({ className }) => {
           "text-[#86869E] flex-grow flex flex-row gap-4 bg-[#F3F4F9] justify-start items-center rounded-xl px-4"
         )}
       >
-        <Search className="text-[#86869E]" />
+        <Search className="text-[#86869E] " />
         <input
           onChange={(e) => {
             setSearchQuery(e.target.value);
@@ -27,7 +26,7 @@ const SearchBox: FC<SearchBoxProps> = ({ className }) => {
             else setIsSearching(true);
           }}
           placeholder="Search for fruit salad combos"
-          className=" text-[#86869E] bg-[#F3F4F9]  w-full h-12 rounded-xl text-sm outline-none"
+          className="touch-none text-[#86869E] bg-[#F3F4F9]  w-full h-12 rounded-xl text-sm outline-none"
         />
       </div>
 

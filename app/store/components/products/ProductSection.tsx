@@ -4,6 +4,7 @@ import Product from "./Product";
 import clsx from "clsx";
 import { motion } from "framer-motion";
 export type Product = {
+  id: string;
   name: string;
   photo: string;
   price: number;
