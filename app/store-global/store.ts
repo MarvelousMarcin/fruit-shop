@@ -14,6 +14,7 @@ type Action = {
   setIsSearching: (value: boolean) => void;
   setSearchQuery: (value: string) => void;
   addProduct: (product: Product) => void;
+  removeProduct: (id: string) => void;
 };
 
 export const useStore = create<State & Action>()((set) => ({
@@ -38,6 +39,23 @@ export const useStore = create<State & Action>()((set) => ({
         return {
           basket: newBasket,
         };
+      }
+    }),
+  removeProduct: (id) =>
+    set((state) => {
+      const findItem = state.basket.find((prod) => prod.id === id);
+
+      if (findItem?.quantity === 1) {
+        const newBasket = state.basket.filter((prod) => prod.id !== id);
+        return { basket: newBasket };
+      } else {
+        const newBasket = state.basket.map((prod) => {
+          if (prod?.id == id) {
+            return { ...prod, quantity: prod.quantity - 1 };
+          }
+          return prod;
+        });
+        return { basket: newBasket };
       }
     }),
 }));
