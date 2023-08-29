@@ -32,6 +32,7 @@ const SearchConenent: FC<SearchConenentProps> = ({ className }) => {
               name={prod.name}
               photo={prod.photo}
               price={prod.price}
+              id={prod.id}
             />
           ))}
       </section>

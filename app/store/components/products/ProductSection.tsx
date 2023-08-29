@@ -51,6 +51,7 @@ const ProductSection: FC<ProductSectionProps> = ({
           >
             {products.map((product) => (
               <Product
+                id={product.id}
                 name={product.name}
                 photo={product.photo}
                 price={product.price}

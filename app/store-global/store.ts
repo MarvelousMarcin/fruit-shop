@@ -1,11 +1,12 @@
 import { create } from "zustand";
 import { Product } from "../store/components/products/ProductSection";
+import { BasketProduct } from "../types/products";
 
 type State = {
   isMenuOpen: boolean;
   isSearching: boolean;
   searchQuery: string;
-  basket: Product[];
+  basket: BasketProduct[];
 };
 
 type Action = {
@@ -19,31 +20,24 @@ export const useStore = create<State & Action>()((set) => ({
   isMenuOpen: false,
   isSearching: false,
   searchQuery: "",
-  basket: [
-    {
-      id: "10",
-      name: "Kiwikos",
-      photo: "/assets/item8.png",
-      price: 22,
-      bgColor: "bg-blue-dark",
-    },
-    {
-      id: "8",
-      name: "Cariptoza",
-      photo: "/assets/item6.png",
-      price: 14,
-      bgColor: "bg-blue-light",
-    },
-    {
-      id: "9",
-      name: "Saladas",
-      photo: "/assets/item7.png",
-      price: 33,
-      bgColor: "bg-orange-light",
-    },
-  ],
+  basket: [],
   switchMenu: () => set((state) => ({ isMenuOpen: !state.isMenuOpen })),
   setIsSearching: (value) => set(() => ({ isSearching: value })),
   setSearchQuery: (value) => set(() => ({ searchQuery: value })),
-  addProduct: (value) => set((state) => ({ basket: [...state.basket, value] })),
+  addProduct: (value) =>
+    set((state) => {
+      const itemExisis = state.basket.find((prod) => prod.id === value.id);
+      const newBasket = state.basket.map((item) => {
+        if (item.id === itemExisis?.id)
+          return { ...itemExisis, quantity: itemExisis.quantity + 1 };
+        else return item;
+      });
+      if (!itemExisis)
+        return { basket: [...state.basket, { ...value, quantity: 1 }] };
+      else {
+        return {
+          basket: newBasket,
+        };
+      }
+    }),
 }));

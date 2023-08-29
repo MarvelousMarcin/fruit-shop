@@ -4,6 +4,7 @@ import { Heart, PlusCircle } from "lucide-react";
 import Image from "next/image";
 import { FC, useState } from "react";
 import { motion } from "framer-motion";
+import { useStore } from "@/app/store-global/store";
 
 interface ProductProps {
   photo: string;
@@ -11,17 +12,19 @@ interface ProductProps {
   price: number;
   bgColor?: string;
   lastElemRef?: any;
+  id: string;
 }
 
 const Product: FC<ProductProps> = ({
   name,
   photo,
   price,
+  id,
   bgColor = "bg-white",
   lastElemRef,
 }) => {
   const [isLiked, setIsLiked] = useState(false);
-
+  const { addProduct } = useStore();
   return (
     <motion.div
       animate={{ size: [0.94, 1] }}
@@ -51,7 +54,12 @@ const Product: FC<ProductProps> = ({
       <h1 className="text-md self-start mt-4">{name}</h1>
       <section className="flex justify-between w-full">
         <h2 className="text-orange-main">$ {price}</h2>
-        <PlusCircle className="text-orange-main cursor-pointer" />
+        <PlusCircle
+          onClick={() => {
+            addProduct({ photo, price, id, name });
+          }}
+          className="text-orange-main cursor-pointer"
+        />
       </section>
     </motion.div>
   );
