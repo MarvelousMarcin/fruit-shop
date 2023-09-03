@@ -55,7 +55,7 @@ export default function Basket() {
       </motion.div>
       <div className="w-full h-28 flex justify-center items-center relative ">
         <button
-          onClick={() => router.push("/store")}
+          onClick={() => router.push("/")}
           className="bg-white text-gray-main rounded-xl font-bold px-2 py-1 absolute left-3 md:left-10 flex gap-1 items-center justify-center"
         >
           <ArrowBigLeft />

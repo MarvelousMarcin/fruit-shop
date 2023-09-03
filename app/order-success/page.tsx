@@ -23,7 +23,7 @@ export default function OrderSuccess() {
           <button className="bg-orange-main text-white p-3 font-bold rounded-md border-orange-main border-2 h-fit">
             Order Status
           </button>
-          <Link href="/store">
+          <Link href="/">
             <button className="border-orange-main border-2 p-3 rounded-md">
               Order Something else
             </button>
